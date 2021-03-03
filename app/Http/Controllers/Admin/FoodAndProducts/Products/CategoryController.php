@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\FoodAndProducts;
+namespace App\Http\Controllers\Admin\FoodAndProducts\Products;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\FoodAndProducts\Category\StoreRequest;
-use App\Http\Requests\Admin\FoodAndProducts\Category\UpdateRequest;
-use App\Models\Admin\FoodAndProducts\Category;
+use App\Http\Requests\Admin\FoodAndProducts\Product\Category\ProductCategoryStore;
+use App\Http\Requests\Admin\FoodAndProducts\Product\Category\ProductCategoryUpdate;
+use App\Models\Admin\FoodAndProducts\Products\Category;
 
 class CategoryController extends Controller
 {
@@ -24,7 +24,7 @@ class CategoryController extends Controller
     }
 
 
-    public function store(StoreRequest $request)
+    public function store(ProductCategoryStore $request)
     {
         Category::create($request->all());
         return redirect()->route('categories.index');
@@ -42,7 +42,7 @@ class CategoryController extends Controller
         return view('admin.foodandproducts.food.category.show', compact('category'));
     }
 
-    public function update(UpdateRequest $request, Category $category)
+    public function update(ProductCategoryUpdate $request, Category $category)
     {
         $category->update($request->all());
         return redirect()->route('categories.index');

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin\Provider;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class ProviderStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,11 +16,15 @@ class UpdateRequest extends FormRequest
         return false;
     }
 
-
+  /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
-            'name' => 'required|string|min:3|unique:providers,name,'.$this->route('provider')->id.'|max:50',
+            'name' => 'required|string|min:3|max:50|unique:providers',
             'description' => 'nullable|string|min:3|max:255',
             'phone' => 'required|string|min:5|max:10',
             'whatsapp' => 'nullable|string|min:5|max:10',

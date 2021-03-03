@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\FoodAndProducts\Category;
+namespace App\Http\Requests\Admin\FoodAndProducts\Product\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class ProductCategoryUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

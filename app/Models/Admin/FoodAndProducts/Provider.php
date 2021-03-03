@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin\FoodAndProducts;
 
+use App\Models\Admin\FoodAndProducts\Products\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,6 +21,10 @@ class Provider extends Model
 
     ];
 
+    public function products(){
 
+        return $this->hasMany(Product::class);
+
+    }
 
 }

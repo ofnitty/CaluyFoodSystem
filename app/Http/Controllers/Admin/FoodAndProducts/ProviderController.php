@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\FoodAndProducts;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Provider\StoreRequest;
-use App\Http\Requests\Admin\Provider\UpdateRequest;
+use App\Http\Requests\Admin\Provider\ProviderStore;
+use App\Http\Requests\Admin\Provider\ProviderUpdate;
 use App\Models\Admin\FoodAndProducts\Provider;
 
 class ProviderController extends Controller
@@ -23,7 +23,7 @@ class ProviderController extends Controller
     }
 
 
-    public function store(StoreRequest $request)
+    public function store(ProviderStore $request)
     {
         Provider::create($request->all());
         return redirect()->route('providers.index');
@@ -41,7 +41,7 @@ class ProviderController extends Controller
         return view('admin.foodandproducts.food.provider.show', compact('provider'));
     }
 
-    public function update(UpdateRequest $request, Provider $provider)
+    public function update(ProviderUpdate $request, Provider $provider)
     {
         $provider->update($request->all());
         return redirect()->route('providers.index');
