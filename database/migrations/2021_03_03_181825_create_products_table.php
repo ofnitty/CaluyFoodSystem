@@ -18,16 +18,15 @@ class CreateProductsTable extends Migration
 
             $table->string('code')->unique();
             $table->string('name')->unique();
-
-            $table->integer('stock');
-
+            $table->string('description');
             $table->string('image');
-
+            $table->integer('stock');
             $table->decimal('sellPrice', 12, 2);
 
             $table->enum('status', ['ACTIVE', 'DISABLED'])->default('ACTIVE');
-
             $table->boolean('plu18');
+
+            $table->decimal('purchasePrice', 12, 2);
 
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
@@ -35,7 +34,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('provider_id');
             $table->foreign('provider_id')->references('id')->on('providers');
 
-            $table->decimal('purchasePrice', 12, 2);
+
 
 
             $table->timestamps();

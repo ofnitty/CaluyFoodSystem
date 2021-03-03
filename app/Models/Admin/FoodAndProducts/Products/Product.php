@@ -18,6 +18,7 @@ class Product extends Model
         'image',
         'plus18',
         'sellPrice',
+        'purchasePrice',
         'status',
         'category_id',
         'provider_id',
