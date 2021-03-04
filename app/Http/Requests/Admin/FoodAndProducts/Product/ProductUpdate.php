@@ -16,7 +16,7 @@ class ProductUpdate extends FormRequest
     public function rules()
     {
         return [
-            'name'=> 'required|string|unique:products,name,'.$this->route('products')->id.'|max:50',
+            'name'=> 'required|string|unique:products,name,'.$this->route('product')->id.'|max:50',
             'description' => 'nullable|string|min:3|max:255',
             'image' => 'required|file|size:2048|dimensions:min_width=500,min_height=500|mimes:jpg,png',
             'plus18' => 'required|boolean',
